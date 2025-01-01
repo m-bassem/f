@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الحاج باسم بطيشه</title>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Almarai';
+            background-color: #f3f3f3;
+            color: #333;
+            font-size: 16px; /* حجم الخط الافتراضي */
+        }
+        header {
+            background-color: #47dbdbc7;
+            color: #100707b6;
+            padding: 20px 10%;
+            text-align: center;
+            position: sticky;
+            top: 1000;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 1.5rem;
+        }
+        header h1 {
+            margin: 10;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            font-size: 1.5rem;
+        }
+        nav ul li a:hover {
+            color: #e7ff0e;
+        }
+        .hero {
+            text-align: center;
+            padding: 50px 10%;
+            background: linear-gradient(#47dbdbc7, #fff), url('https://source.unsplash.com/1600x900/?travel') no-repeat center/cover;
+            color: rgb(30, 29, 29);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 2;
+            }
+        }
+        .hero h2 {
+            font-size: 2rem;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .image-container img {
+            border-radius: 50%;
+            width: 600px;
+            height: 600px;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .services {
+            padding: 50px 10%;
+            background-color: #fff;
+        }
+        .services h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            background-color: rgb(75, 201, 201);
+        }
+        .service {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .service-item {
+            flex: 1 1 calc(33.333% - 20px);
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s;
+            font-size: 1.5rem;
+        }
+        .service-item:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #008080;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            font-size: x-large;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        /* نافذة الأرقام */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(#47dbdb, #ffffff), url('https://source.unsplash.com/1600x900/?travel') no-repeat center/cover;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border-radius: 10px;
+            width: 500px;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+        .popup.active {
+            display: block;
+        }
+        .popup button {
+            background-color: #007676;
+            font-family: 'Almarai';
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        .popup button:hover {
+            background-color: #008080;
+        }
+
+        /* media queries لتعديل الحجم على الشاشات الصغيرة */
+        @media screen and (max-width: 768px) {
+            body {
+                font-size: 14px; /* تصغير حجم الخط في الشاشات الصغيرة */
+            }
+
+            header {
+                font-size: 1.2rem;
+            }
+
+            nav ul li a {
+                font-size: 1.2rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .service-item {
+                font-size: 1.2rem;
+            }
+
+            .popup {
+                width: 80%; /* عرض النافذة يكون أصغر على الموبايل */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.3rem;
+            }
+
+            .service-item {
+                font-size: 1rem;
+            }
+
+            .popup {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>الحاج باسم بطيشه </h1>
+        <nav>
+            <ul>
+                <li><a href="javascript:void(0)" onclick="togglePopup()">ارقام الهاتف</a></li>
+                <li><a href="#services">..............</a></li>
+                <li><a href="#services">افراد الأسره</a></li>
+                <li><a href="#services">..............</a></li>
+                <li><a href="#contact">الرئيسية</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="hero">
+        <h2>موقع أسرة الحاج باسم بطيشه  </h2>
+        <div class="image-container">
+            <img src="Polish_٢٠٢٤٠٤١٠_٢٠١٢٢٦٣٦٦.jpg" alt="صورة الحاج باسم بطيشه">
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2>الأبناء</h2>
+        <div class="service">
+            <div class="service-item">
+                <h3>محمد</h3>
+                <p>كلية هندسة البرمجيات وعلوم الحاسب .</p>
+                <p>18 عام.</p>
+            </div>
+            <div class="service-item">
+                <h3>شيماء</h3>
+                <p>الصف الاول الثانوي</p>
+                <p>16 عام.</p>
+            </div>
+            <div class="service-item">
+                <h3> عبد الرحمن</h3>
+                <p>الصف السادس الإبتدائي </p>
+                <p>11 عام.</p>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <p>&copy; Mohamed Bassem </p>
+    </footer>
+
+    <!-- نافذة الأرقام -->
+    <div class="popup" id="phonePopup">
+        <h3>ارقام هاتف الأسره</h3>
+        <p>00966544732606   :الحاج باسم</p>
+        <p>00966542586143   :2الحاج باسم</p>
+        <p>01016849179      :محمد</p>
+        <button onclick="togglePopup()">إغلاق</button>
+    </div>
+
+    <script>
+        // فتح وغلق النافذة
+        function togglePopup() {
+            const popup = document.getElementById('phonePopup');
+            popup.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
